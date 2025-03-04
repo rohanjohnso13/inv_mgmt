@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+</head>
+<body>
+    <h2>Inventory List</h2>
+    <table border="1">
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Total Sales</th>
+        </tr>
+        {% for product in inventory %}
+        <tr>
+            <td>{{ product["Product ID"] }}</td>
+            <td>{{ product["Product Name"] }}</td>
+            <td>{{ product["Category"] }}</td>
+            <td>{{ product["Price"] }}</td>
+            <td>{{ product["Stock"] }}</td>
+            <td>{{ product["Total Sales"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Add Product</h2>
+    <form action="/add" method="POST">
+        <input type="text" name="product_id" placeholder="Product ID" required>
+        <input type="text" name="product_name" placeholder="Product Name" required>
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="text" name="price" placeholder="Price" required>
+        <input type="text" name="stock" placeholder="Stock" required>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
